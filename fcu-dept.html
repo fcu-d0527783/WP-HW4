@@ -1,0 +1,58 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <meta charset="utf8"> 
+    </head> 
+         
+    <body> 
+        <h2>Please select your college:</h2> 
+        <select id = "college_list" onchange = "myFunction()"><option>--College--</option>
+		</select> 
+        <h2>Please select your department:</h2> 
+        <select id = "department_list"><option>--Department--</option><select> 
+        <script> 
+            var college = ["商學院","金融學院","工學院","資電學院"]; 
+            var dept_list0 = ["會計學系","國際經營與貿易學系","財稅學系","合作經濟暨社會事業經營學系","統計學系","經濟學系","企業管理學系","行銷學系" 
+                                ,"商學進修學士學位學程 ","財經法律研究所","科技管理碩士學位學程" 
+                                ,"產業碩士專班","商學專業碩士在職學位學程"]; 
+            var dept_list1 = ["風險管理與保險學系","財務金融學系","財務工程與精算學士學位學程","金融碩士在職學位學程","金融博士學位學程"]; 
+            var dept_list2 = ["機械與電腦輔助工程學系","纖維與複合材料學系","工業工程與系統管理學系","化學工程學系","航太與系統工程學系" 
+                                ,"精密系統設計學士學位學程"]; 
+            var dept_list3 = ["資訊工程學系","電機工程學系","電子工程學系","自動控制工程學系","通訊工程學系","資電不分系榮譽班"]; 
+            //var sel_college = document.getElementById("college_list"); 
+            var option_college=""; 
+            for(var i=0;i<college.length;i++){ 
+            option_college = option_college + '<option value = "'+ i + '">' + college[i] + '</option>'; 
+            } 
+            //sel_college.innerHTML=option_college; 
+            document.getElementById("college_list").innerHTML = option_college; 
+             
+            function myFunction(){ 
+            var x = document.getElementById("college_list"). 
+                    options[document.getElementById("college_list").selectedIndex].value; 
+                     
+            var sel_department = document.getElementById("department_list"); 
+            console.log(x); 
+             
+            switch(x){ 
+            case "0":    subFunction(dept_list0);break; 
+            case "1":    subFunction(dept_list1);break; 
+            case "2":    subFunction(dept_list2);break; 
+			case "3":    subFunction(dept_list3);break; 
+            default: console.log("invalid selection!!!");break; 
+                } 
+            } 
+             
+            function subFunction(dept){ 
+            var option_department=""; 
+            for(var j=0;j<dept.length;j++){ 
+            option_department = option_department + '<option value = "'+ j + '">' + dept[j] + '</option>'; 
+                } 
+            document.getElementById("department_list").innerHTML = option_department; 
+            } 
+             
+             
+        </script> 
+  
+    </body> 
+</html> 
